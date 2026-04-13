@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jur Sital - The Maithili New Year</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo"><a href="index.html">Jur Sital</a></div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">The Cosmos</a></li>
+            <li><a href="#astronomy">Astronomy</a></li>
+            <li><a href="#comparison">Traditions</a></li>
+            <li><a href="#ecology">Ecology</a></li>
+            <li><a href="#culinary">Culinary</a></li>
+            <li><a href="#diaspora">Diaspora</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Theme" title="Toggle Dark Theme">🌙</button>
+            <button id="lang-toggle" class="icon-btn" aria-label="Toggle Language" title="Toggle Language">🔤</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Jur Sital</h1>
+        <p>The Ethnography and Ecological Philosophy of the Maithili New Year. Celebrate the joy, warmth, and cooling blessings.</p>
+        <button class="btn" onclick="triggerBlessing()">Receive Blessings (Sprinkle Water)</button>
+    </section>
+
+    <!-- About / Cosmos Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">Introduction to the Maithili Agrarian Cosmos</h2>
+        
+        <div class="content-block">
+            <p class="article-text">The Maithili civilization, historically situated in the culturally rich Mithila region, represents one of the most ancient and continuous agrarian societies in the Indian subcontinent. Geographically bounded by the Mahananda River in the east, the Ganges in the south, the Gandaki River in the west, and the Himalayan foothills in the north, this region encompasses modern districts in Bihar, Jharkhand, and Nepal.</p>
+            
+            <p class="article-text">Jur Sital is celebrated annually with immense fervor on the 14th or 15th of April, acting as the definitive marker for the first day of the Maithili calendar, which is strictly guided by the traditional <strong>Tirhuta Panchang</strong>. Etymologically, the nomenclature of the festival reveals its core physiological and psychological intent: the term "Jur" translates to connection, settling, and cooling, while "Sital" explicitly denotes coldness and tranquility.</p>
+            
+            <p class="article-text">Unlike a multitude of contemporary and historical New Year celebrations across the globe that are characterized by grand feasts, pyrotechnics, and hyper-active consumption, Jur Sital uniquely revolves around nature, water, and conscious rest. It is a deliberate, community-wide cessation of labor designed to welcome the harsh, unforgiving South Asian summer by emphasizing the critical importance of staying cool, remaining hydrated, and deeply connecting to the earth.</p>
+        </div>
+        
+        <img src="assets/about_art.png" alt="Madhubani cultural art" class="feature-image">
+    </section>
+
+    <!-- Astronomy Section -->
+    <section id="astronomy" class="container">
+        <h2 class="section-title">Astronomical & Calendrical Foundations</h2>
+        
+        <div class="content-block">
+            <h3>The Tirhuta Panchang</h3>
+            <p class="article-text">The observance of Jur Sital is inextricably linked to ancient Hindu solar calendrical mathematics, specifically rooted in the <em>Surya Siddhanta</em>. The festival aligns precisely with the Nirayana Mesha Sankranti, marking the astronomical transition of the Sun into the zodiac sign of Aries (Mesha). The foundational divergence between Western Gregorian calculations and the Hindu sidereal system lies in the accounting for axial precession, adjusting for cosmic shift by adding approximately 23 degrees of trepidation.</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Maithili Month</th>
+                            <th>Gregorian Equivalent</th>
+                            <th>Associated Season (Ritu)</th>
+                            <th>Climatic Profile</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Baiśākha (वैशाख)</td><td>April - May</td><td>Grishma (Summer)</td><td>Intense pre-monsoon heat; period of Jur Sital.</td></tr>
+                        <tr><td>Jyeṣṭha (ज्येष्ठ)</td><td>May - June</td><td>Grishma (Summer)</td><td>Peak solar intensity and drought risk.</td></tr>
+                        <tr><td>Āshāḍha (आषाढ़)</td><td>June - July</td><td>Varsha (Monsoon)</td><td>Arrival of the southwest monsoon; planting season.</td></tr>
+                        <tr><td>Śrāvaṇa (श्रावण)</td><td>July - August</td><td>Varsha (Monsoon)</td><td>Heavy rainfall; period of agricultural maturation.</td></tr>
+                        <tr><td>Bhādra (भाद्र)</td><td>August - September</td><td>Sharad (Autumn)</td><td>Retreating monsoon.</td></tr>
+                        <tr><td>Āśvina (आश्विन)</td><td>September - October</td><td>Sharad (Autumn)</td><td>Moderate temperatures; harvest preparation.</td></tr>
+                        <tr><td>Kārtika (कार्तिक)</td><td>October - November</td><td>Hemant (Pre-Winter)</td><td>Post-monsoon cooling; period of Chhath Puja.</td></tr>
+                        <tr><td>Mārgaśīrṣa (मार्गशीर्ष)</td><td>November - December</td><td>Hemant (Pre-Winter)</td><td>Progressive cooling; primary harvest.</td></tr>
+                        <tr><td>Pauṣa (पौष)</td><td>December - January</td><td>Shishir (Winter)</td><td>Coldest temperatures of the year.</td></tr>
+                        <tr><td>Māgha (माघ)</td><td>January - February</td><td>Shishir (Winter)</td><td>Continued cold; gradual lengthening of days.</td></tr>
+                        <tr><td>Phālguna (फाल्गुन)</td><td>February - March</td><td>Vasant (Spring)</td><td>Warming temperatures; period of Holi.</td></tr>
+                        <tr><td>Chaitra (चैत्र)</td><td>March - April</td><td>Vasant (Spring)</td><td>Final moderate month before the new solar cycle.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="data-caption">Data derived from the structural analysis of the Tirhuta Panchang and regional climatic records.</div>
+            
+            <h3>Sankranti Timings (2026)</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event / Astrological Transition</th>
+                            <th>Date</th>
+                            <th>Exact Time / Duration (IST)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Mesha Sankranti Moment</td><td>Tuesday, April 14, 2026</td><td>09:38 AM - 09:39 AM</td></tr>
+                        <tr><td>Punya Kala (Auspicious Period)</td><td>April 14, 2026</td><td>06:09 AM to 01:50 PM</td></tr>
+                        <tr><td>Maha Punya Kala</td><td>April 14, 2026</td><td>06:09 AM to 08:27 AM</td></tr>
+                        <tr><td>Ruling Nakshatra</td><td>April 14, 2026</td><td>Purva Ashadha</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparative Analysis Section -->
+    <section id="comparison" class="container">
+        <h2 class="section-title">Pan-Asian Solar New Years</h2>
+        
+        <div class="content-block">
+            <h3>Regional Divergence & Metabolic Deceleration</h3>
+            <p class="article-text">Jur Sital does not exist in a cultural vacuum; it is part of a broad, pan-Asian tradition of solar New Year celebrations occurring synchronously in mid-April. 
+                However, while the astronomical trigger is identical, the sociocultural manifestations differ significantly.</p>
+            
+            <p class="article-text">A deeper analysis reveals a striking philosophical divergence in the Maithil approach. While Baisakhi, Bihu, and Poila Boishakh are characterized by high-energy communal output and elaborate hot feasts, Jur Sital operates on an ideology of 
+                <strong>metabolic and thermal deceleration</strong>. The festival explicitly mandates the lowering of both literal and figurative heat, elevating collective non-action—the cessation of cooking and avoidance of heat generation—to a sacred duty.</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Region / Community</th>
+                            <th>Festival Nomenclature</th>
+                            <th>Primary Ritual Focus and Cultural Manifestation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Mithila</strong></td><td>Jur Sital / Aakhar Bochhor</td><td>Hydration, resting the hearth, consuming cold food, mud play, elder blessings.</td></tr>
+                        <tr><td>Punjab / Haryana</td><td>Baisakhi / Vaisakhi</td><td>Harvest thanksgiving, Bhangra dances, communal Langar feasts, martial arts.</td></tr>
+                        <tr><td>Assam</td><td>Bohag Bihu / Rongali Bihu</td><td>Spring agricultural cycle initiation, energetic folk dances, feasting on delicacies.</td></tr>
+                        <tr><td>Kerala</td><td>Vishu</td><td>Prosperity, viewing auspicious items at dawn, gifting coins, multi-flavor communal feasts.</td></tr>
+                        <tr><td>West Bengal</td><td>Poila Boishakh</td><td>Commercial renewal, new ledger books, cultural rallies, fresh Hilsa fish.</td></tr>
+                        <tr><td>Tamil Nadu</td><td>Puthandu</td><td>Domestic purification, Kolams at doorsteps, Mangai Pachadi (life's balance).</td></tr>
+                        <tr><td>Odisha</td><td>Maha Bishuba Sankranti</td><td>Preparation of Bela Pana (cooling Bael fruit drink), cultural observances.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecology Section -->
+    <section id="ecology" class="container">
+        <h2 class="section-title">The Hydrological Theology</h2>
+        
+        <div class="content-block">
+            <h3>The "Jurail" Blessing and Ecosystem Hydration</h3>
+            <p class="article-text">The rituals of Jur Sital are explicitly designed to foster environmental resilience against the severe threat of pre-monsoon drought. 
+                The sequence begins with storing water overnight in earthen, copper, or brass vessels. At dawn, this temperature-regulated, sanctified water is sprinkled by elders onto the heads of younger family members accompanied by the blessing: 
+                <em>"Jurail rahiye, thandaiyail rahiye"</em> (May you stay cool, may you remain tranquil).</p>
+            
+            <p class="article-text">The reach of this ritual extends to domestic animals, agricultural implements, and local flora.
+                 The deliberate watering of plants and trees is an acute acknowledgment of interconnectedness, functioning as ecological stewardship.</p>
+            
+            <h3>Thal-Kado: Ecological Engineering</h3>
+            <p class="article-text">The tradition of "Thal-Kado" (playing with mud) utilizes fresh, wet silt extracted from the beds 
+                of local water bodies. From an ecological engineering perspective, this acts as a highly effective, decentralized desilting mechanism for vital village ponds, 
+                preparing them to capture the impending monsoon rains. Furthermore, applying nutrient-rich pond silt to the human body acts as a natural thermoregulator and prophylactic against summer heat rashes.</p>
+            
+            <h3>Global Sustainability Tie-In</h3>
+            <p class="article-text">Long before modern environmental movements advocated for "Earth Hour" or carbon footprint reduction, the "Basiya Pavani" (resting the stove) naturally instantiated a massive, synchronized reduction in thermal emissions, firewood consumption, and smoke generation across the entire region. Jur Sital stands as the original eco-conscious festival.</p>
+        </div>
+        
+        <img src="assets/img1.png" alt="Madhubani agricultural celebration" class="feature-image">
+    </section>
+
+    <!-- Culinary Section -->
+    <section id="culinary" class="container">
+        <h2 class="section-title">Culinary Anthropology</h2>
+        
+        <div class="content-block">
+            <h3>The Veneration of the Hearth and Basiya Pavani</h3>
+            <p class="article-text">Jur Sital challenges the global paradigm of festive feasting by engaging in a profound ritual of culinary abstinence known as <strong>Basiya Pavani</strong> (the festival of stale food). It begins on the eve (Satuani) with the consumption of highly nutritious Sattu (roasted gram flour) and an exhaustive cooking session.</p>
+            <p class="article-text">On Jur Sital, the traditional earthen stove (Chulha) is designated a day of rest and recuperation, venerated as <em>Chulha Maharani</em>. This prevents thermal pollution in the home, providing a passive cooling sanctuary. The community consumes exclusively <em>Basiya Khaana</em>—food prepared the previous night cooled to room temperature.</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component Category</th>
+                            <th>Traditional Preparations</th>
+                            <th>Culinary & Nutritional Significance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Primary Carbohydrates</td><td>Baasi Bhaat, Poori, Dalpoori</td><td>Overnight soaked rice creates resistant starch beneficial for gut health with a cooling effect.</td></tr>
+                        <tr><td>Curries & Protein</td><td>Kadhi-Bari / Badi-Bhaat</td><td>Yogurt-based curry with gram flour dumplings provides essential probiotics and hydration.</td></tr>
+                        <tr><td>Vegetable Preparations</td><td>Tarua, Timan (Bitter gourd)</td><td>Bitter profiles align with Ayurvedic principles to pacify Pitta (heat) dosha.</td></tr>
+                        <tr><td>Seasonal Specialties</td><td>Sajivan (Moringa), Aaloo-Baigan</td><td>Moringa is dense in micronutrients, bolstering the immune system.</td></tr>
+                        <tr><td>Condiments & Relishes</td><td>Kachchi Kairy Aamgura, Tikola</td><td>Raw mango is rich in Vitamin C, acting as a potent preventative against heatstroke.</td></tr>
+                        <tr><td>Confections</td><td>Tilkor, Gulab Jamun, Malpua</td><td>Sesame provides slow-releasing energy; jaggery aids digestion.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>Scientific Rationale of Seasonal Immunity</h3>
+            <p class="article-text">The controlled practice of Basiya Khaana naturally develops strains of probiotic bacteria. Consuming these mildly fermented foods introduces beneficial microbes that fortify the gut microbiome and boost immunological resistance against seasonal viral outbreaks, serving as a culturally mandated public health intervention.</p>
+        </div>
+    </section>
+
+    <!-- Diaspora & Synthesis Section -->
+    <section id="diaspora" class="container">
+        <h2 class="section-title" data-maithili="प्रवासी अनुकूलन">Diasporic Adaptations & Synthesis</h2>
+        
+        <div class="content-block">
+            <p class="article-text">Internal migration has established a vast Maithil diaspora in urban centers like Ludhiana, Punjab. In these environments, traditional rituals adapt—for instance, substituting fresh pond mud with commercially available <em>multani mitti</em>. Organizations like the <strong>Mithila Samaj</strong> play a crucial role in preserving identity by organizing communal feasts and cultural programs that recreate the hyper-local agrarian rites in a modern, often high-rise setting.</p>
+            <p class="article-text">Ultimately, Jur Sital stands as a profound testament to the Maithili civilization's historical capacity to synchronize human life with the uncompromising rhythms of the earth. By ritualizing water conservation, instituting system cooldowns via Chulha Maharani's rest, and pivoting to probiotic diets, Jur Sital transmits a vital intergenerational mandate: survival, prosperity, and communal harmony depend fundamentally upon ecological reverence and metabolic restraint.</p>
+        </div>
+    </section>
+
+    <!-- Folklore & Mythology Section -->
+    <section id="folklore" class="container">
+        <h2 class="section-title" data-maithili="लोककथा आ पौराणिक कथा">Folklore & Mythology</h2>
+        <div class="content-block">
+            <p class="article-text">The origins of Jur Sital are steeped in the rich mythological tapestry of the Mithila region. A prevailing legend suggests that the practice of conserving cool water and soothing the earth was initiated by King Janaka of Videha to appease nature deities during a severe ancient drought. The cooling rituals are also symbolically linked to providing relief to the sun god, Surya, after his intense journey.</p>
+        </div>
+    </section>
+
+    <!-- Literature & Vidyapati Section -->
+    <section id="literature" class="container">
+        <h2 class="section-title" data-maithili="मैथिली साहित्य आ विद्यापति">Maithili Literature & Vidyapati</h2>
+        <div class="content-block">
+            <p class="article-text">The transition of seasons has been beautifully immortalized by the legendary 14th-century Maithili poet Vidyapati. His verses often capture the melancholic beauty of the approaching scorching summer, the longing for rain, and the cultural necessity of Jur Sital to bring momentary respite to the parched lands and the aching hearts of lovers separated during the harsh season.</p>
+        </div>
+    </section>
+
+    <!-- DIY Checklist Section -->
+    <section id="checklist" class="container">
+        <h2 class="section-title" data-maithili="पाबैन मनेबाक चेकलिस्ट">"How to Celebrate" Checklist</h2>
+        <div class="content-block">
+            <p class="article-text">Whether you're in the heart of Mithila or anywhere around the world, here is how you can observe Jur Sital at home.</p>
+            <div class="checklist-container">
+                <label class="check-item"><input type="checkbox"> <span class="custom-check"></span> <span><strong>Satuani (Eve):</strong> Eat Sattu and prepare food for the next day.</span></label>
+                <label class="check-item"><input type="checkbox"> <span class="custom-check"></span> <span><strong>Satuani Night:</strong> Fill a copper/brass vessel with water and let it cool overnight outside or by a window.</span></label>
+                <label class="check-item"><input type="checkbox"> <span class="custom-check"></span> <span><strong>Jur Sital Dawn:</strong> Elders sprinkle the cooled water on the heads of younger family members.</span></label>
+                <label class="check-item"><input type="checkbox"> <span class="custom-check"></span> <span><strong>Chulha Rest:</strong> Do not light the stove. Clean it and let it rest (Chulha Maharani).</span></label>
+                <label class="check-item"><input type="checkbox"> <span class="custom-check"></span> <span><strong>Nature Blessing:</strong> Sprinkle water on plants, trees, and at the roots of the Tulsi plant.</span></label>
+                <label class="check-item"><input type="checkbox"> <span class="custom-check"></span> <span><strong>Basiya Pavani:</strong> Eat the food prepared the previous night (Baasi Bhaat, Bari, etc.).</span></label>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="checklist-progress"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map-section" class="container">
+        <h2 class="section-title" data-maithili="मिथिलाक सांस्कृतिक मानचित्र">The Cultural Map of Mithila</h2>
+        <div class="content-block text-center map-block">
+            <p class="article-text">Jur Sital originated in the historic Mithila region, spanning northern Bihar and the eastern Terai of Nepal. Today, it is celebrated globally by the diaspora.</p>
+            <div class="map-placeholder">
+                <div id="live-map" aria-label="Interactive map of Mithila and diaspora cities"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multimedia & Gallery Section -->
+    <section id="gallery" class="container">
+        <h2 class="section-title" data-maithili="दृश्य आ संगीत">Visuals & Melodies</h2>
+        <div class="content-block">
+            <h3>Folk Music of the Season</h3>
+            <p class="article-text">Listen to traditional Maithili folk tunes sung during the harvest and new year.</p>
+            <div class="audio-player" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px;">
+                <iframe style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/HivoGnne6mM?si=k1i0WEYCsKMjpGt1" title="Maithili Folk Song" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <h3 class="mt-4">Madhubani Art & Visuals Gallery</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item visual-1"><span>Ritual Bath</span></div>
+                <div class="gallery-item visual-2"><span>Thal Kadhi</span></div>
+                <div class="gallery-item visual-3"><span>Chulha Veneration</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Memory Wall -->
+    <section id="memory-wall" class="container">
+        <h2 class="section-title" data-maithili="स्मृति दीवार">Community Memory Wall</h2>
+        <div class="content-block">
+            <p class="article-text">Share your memorable Jur Sital experiences with the community.</p>
+            <div class="memory-grid" id="memory-grid">
+                <div class="memory-card">
+                    <p>"I remember my grandmother waking us up with freezing cold water on our heads. We used to be so angry, but now I miss it!"</p>
+                    <cite>- Rakesh, Patna</cite>
+                </div>
+                <div class="memory-card">
+                    <p>"The Badi-Bhaat next day always tastes better than anything freshly cooked. It's magic."</p>
+                    <cite>- Neha, Ludhiana</cite>
+                </div>
+            </div>
+            
+            <div class="memory-form mt-4">
+                <input type="text" id="memory-name" placeholder="Your Name & City" class="form-input">
+                <textarea id="memory-text" placeholder="Share your Jur Sital memory..." class="form-input" rows="3"></textarea>
+                <button class="btn mt-2" onclick="submitMemory()">Submit Memory</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Greeting Section -->
+    <section id="blessings" class="container">
+        <div class="greetings">
+            <h2>Naya Saal Ke Shubhkamnaye!</h2>
+            <p>May this Jur Sital bring peace, prosperity, and coolness to your life.</p>
+            <br>
+            <button class="btn" style="background-color: #d35400;" onclick="triggerBlessing()">Experience the Jur Sital Blessing</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Jur Sital Celebration. Built to honor Maithili Culture. <br />
+             <a href="https://srijanxi.netlify.app/" target="_blank">Srijan Kumar | srijan-xi</a> </p>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
