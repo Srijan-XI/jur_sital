@@ -15,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Link checker (lychee)
         uses: lycheeverse/lychee-action@v2
@@ -46,7 +46,6 @@ jobs:
             --max-retries 2
             --retry-wait-time 2
             --accept 200,206,301,302,403,429
-            --exclude-mail
             --exclude "^https://fonts.googleapis.com"
             --exclude "^https://unpkg.com"
             --exclude "^https://www.openstreetmap.org"
